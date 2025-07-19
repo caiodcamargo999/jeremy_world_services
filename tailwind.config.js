@@ -14,11 +14,16 @@ module.exports = {
           secondary: '#111111',  // Card backgrounds
           tertiary: '#1a1a1a',   // Elevated elements
         },
-        // Service palette colors (from first section)
-        service: {
-          blue: '#3B82F6',       // Yacht Rentals - Blue
-          purple: '#8B5CF6',     // Guest List - Purple
-          green: '#10B981',      // DJ Booking - Green
+        // Monochromatic palette only
+        mono: {
+          light: '#f9fafb',
+          lighter: '#f3f4f6',
+          lightest: '#e5e7eb',
+          medium: '#d1d5db',
+          neutral: '#9ca3af',
+          dark: '#6b7280',
+          darker: '#4b5563',
+          darkest: '#374151',
         },
         // Gray palette for gradients
         gray: {
@@ -38,7 +43,7 @@ module.exports = {
           primary: '#ffffff',    // Main text
           secondary: '#a0a0a0',  // Secondary text
           muted: '#666666',      // Muted text
-          service: '#3B82F6',    // Service text color
+          accent: '#9ca3af',     // Accent text color
         },
         // Legacy support
         primary: {

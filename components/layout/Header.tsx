@@ -32,199 +32,102 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-black/95 backdrop-blur-md border-b border-gray-800' 
-          : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <motion.div
-              className="text-2xl font-bold bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              Jeremy
-            </motion.div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <div key={item.label} className="relative">
-                {item.children ? (
-                  <div
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <motion.button 
-                      className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-200 font-medium"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <span>{item.label}</span>
-                      <motion.div
-                        animate={{ rotate: activeDropdown === item.label ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown className="w-4 h-4" />
-                      </motion.div>
-                    </motion.button>
-                    
-                    <AnimatePresence>
-                      {activeDropdown === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-lg border border-gray-700 overflow-hidden"
-                        >
-                          {item.children.map((child, index) => (
-                            <motion.div
-                              key={child.label}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.2, delay: index * 0.05 }}
-                            >
-                              <Link
-                                href={child.href}
-                                className="block px-4 py-3 text-white hover:bg-gray-700/50 hover:text-gray-200 transition-colors duration-200"
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                {child.label}
-                              </Link>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <motion.div whileHover={{ scale: 1.02 }}>
-                    <Link
-                      href={item.href}
-                      className="text-white hover:text-gray-300 transition-colors duration-200 font-medium"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                )}
-              </div>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link href="/contact">
-              <motion.button
-                className="bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-8 py-4 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+    <header>
+      <nav
+        data-state={isOpen && 'active'}
+        className="fixed z-20 w-full px-2"
+      >
+        <div className={`mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12 ${isScrolled ? 'bg-black/50 max-w-4xl rounded-2xl border border-gray-800 backdrop-blur-lg lg:px-5' : ''}`}>
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+            <div className="flex w-full justify-between lg:w-auto">
+              <Link
+                href="/"
+                aria-label="home"
+                className="flex items-center space-x-2"
               >
-                Apply for Access
-              </motion.button>
-            </Link>
-          </div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+                  Jeremy
+                </div>
+              </Link>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors duration-200"
-            onClick={() => setIsOpen(!isOpen)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </motion.button>
-        </div>
-      </div>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
+                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+              >
+                <Menu className={`${isOpen ? 'rotate-180 scale-0 opacity-0' : ''} m-auto size-6 duration-200`} />
+                <X className={`${isOpen ? 'rotate-0 scale-100 opacity-100' : 'rotate-180 scale-0 opacity-0'} absolute inset-0 m-auto size-6 duration-200`} />
+              </button>
+            </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-gradient-to-br from-gray-800 to-gray-900 border-t border-gray-700"
-          >
-            <div className="max-w-6xl mx-auto px-4 py-6 space-y-4">
-              {navigation.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  {item.children ? (
-                    <div>
-                      <div className="text-white font-medium mb-2">
-                        {item.label}
-                      </div>
-                      <div className="pl-4 space-y-2">
-                        {item.children.map((child, childIndex) => (
-                          <motion.div
-                            key={child.label}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: (index * 0.1) + (childIndex * 0.05) }}
-                          >
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm">
+                {navigation.map((item, index) => (
+                  <li key={index}>
+                    {item.children ? (
+                      <div className="relative group">
+                        <button className="text-gray-300 hover:text-white block duration-150 flex items-center gap-1">
+                          <span>{item.label}</span>
+                          <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                        </button>
+                        <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900 rounded-xl shadow-lg border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                          {item.children.map((child, childIndex) => (
                             <Link
+                              key={child.label}
                               href={child.href}
-                              className="block text-gray-300 hover:text-white transition-colors duration-200"
-                              onClick={() => setIsOpen(false)}
+                              className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
                             >
                               {child.label}
                             </Link>
-                          </motion.div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="block text-white hover:text-gray-300 transition-colors duration-200 font-medium"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                className="pt-4"
-              >
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <motion.button
-                    className="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-8 py-4 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Apply for Access
-                  </motion.button>
-                </Link>
-              </motion.div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-gray-300 hover:text-white block duration-150"
+                      >
+                        <span>{item.label}</span>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+
+            <div className={`bg-gray-900 ${isOpen ? 'block' : 'hidden'} lg:flex mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-gray-700 p-6 shadow-2xl shadow-black/20 md:flex-nowrap lg:m-0 lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none`}>
+              <div className="lg:hidden">
+                <ul className="space-y-6 text-base">
+                  {navigation.map((item, index) => (
+                    <li key={index}>
+                      <Link
+                        href={item.href}
+                        className="text-gray-300 hover:text-white block duration-150"
+                      >
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                <Link href="/contact">
+                  <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-6 py-2 rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-200 text-sm">
+                    Apply for Access
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
   )
 } 

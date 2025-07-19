@@ -9,7 +9,6 @@ import { useSearchParams } from 'next/navigation'
 const serviceData = {
   'yacht-rentals': {
     name: 'Yacht Rentals & Jet Ski',
-    color: '#3B82F6',
     packages: [
       { name: 'Day Charter', price: 5000, duration: '8 hours' },
       { name: 'Weekend Experience', price: 15000, duration: '48 hours' },
@@ -18,7 +17,6 @@ const serviceData = {
   },
   'guest-list': {
     name: 'Guest List & Club Access',
-    color: '#8B5CF6',
     packages: [
       { name: 'Single Event', price: 2500, duration: 'One-time access' },
       { name: 'Weekend Package', price: 8000, duration: 'Full weekend' },
@@ -27,7 +25,6 @@ const serviceData = {
   },
   'dj-booking': {
     name: 'DJ & Artist Booking',
-    color: '#10B981',
     packages: [
       { name: 'Single Performance', price: 15000, duration: '3-hour performance' },
       { name: 'Multi-Artist Event', price: 50000, duration: 'Multiple artists' },
@@ -94,7 +91,7 @@ export default function CheckoutPage() {
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Complete Your
-              <span className="block" style={{ color: currentService.color }}>
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
                 {currentService.name}
               </span>
             </h1>
@@ -144,7 +141,7 @@ export default function CheckoutPage() {
                           <div className="text-right">
                             <div className="text-2xl font-bold text-white">${pkg.price.toLocaleString()}</div>
                             {selectedPackage === pkg.name && (
-                              <Check className="w-5 h-5 text-green-500 mt-1" />
+                              <Check className="w-5 h-5 text-gray-300 mt-1" />
                             )}
                           </div>
                         </div>
@@ -157,7 +154,7 @@ export default function CheckoutPage() {
                 <div className="border-t border-gray-700 pt-6">
                   <div className="flex items-center justify-between text-xl font-bold text-white">
                     <span>Total</span>
-                    <span style={{ color: currentService.color }}>
+                    <span className="text-gray-300">
                       ${selectedPackageData.price.toLocaleString()}
                     </span>
                   </div>
@@ -273,11 +270,7 @@ export default function CheckoutPage() {
                   {/* Payment Button */}
                   <motion.button
                     type="submit"
-                    className="w-full py-4 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center space-x-2"
-                    style={{
-                      backgroundColor: currentService.color,
-                      color: '#ffffff'
-                    }}
+                    className="w-full py-4 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center space-x-2 bg-gradient-to-r from-gray-700 to-gray-600 text-white hover:from-gray-600 hover:to-gray-500"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

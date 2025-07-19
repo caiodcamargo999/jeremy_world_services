@@ -36,12 +36,7 @@
 --bg-secondary: #111111;      /* Card backgrounds */
 --bg-tertiary: #1a1a1a;      /* Elevated elements */
 
-/* Service Palette Colors (From First Section) */
---blue-primary: #3B82F6;      /* Yacht Rentals - Blue */
---purple-primary: #8B5CF6;    /* Guest List - Purple */
---green-primary: #10B981;     /* DJ Booking - Green */
-
-/* Gray Palette */
+/* Monochromatic Palette */
 --gray-50: #f9fafb;
 --gray-100: #f3f4f6;
 --gray-200: #e5e7eb;
@@ -62,11 +57,11 @@
 ### Color Usage Rules
 - **Backgrounds**: Dark gradients inspired by Tailark (#0a0a0a, #111111, #1a1a1a)
 - **Text**: White for primary, gray for secondary
-- **Service Colors**: Use blue (#3B82F6), purple (#8B5CF6), green (#10B981) for service-specific elements
-- **Gradients**: Modern gradient backgrounds using gray palette
-- **Avoid**: Gold colors, bright colors, multiple accent colors, colorful emojis
+- **Monochromatic Only**: Use only grays, blacks, and whites throughout
+- **Gradients**: Sophisticated gray gradients for backgrounds and buttons
+- **Avoid**: All colors (blue, purple, green, gold, etc.), colorful emojis
 - **Gray Integration**: Use gray tones in gradients for sophisticated look
-- **Vector Icons Only**: No colorful emojis, only vector symbols with palette colors
+- **Vector Icons Only**: No colorful emojis, only minimalist vector symbols in white/gray
 
 ## 🔤 Typography System
 
@@ -132,9 +127,9 @@
 
 ### Buttons
 ```css
-/* Primary Button (Service Colors) */
+/* Primary Button (Monochromatic) */
 .btn-primary {
-  background: var(--blue-primary);
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
   color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
@@ -145,8 +140,8 @@
 /* Secondary Button (Outline) */
 .btn-secondary {
   background: transparent;
-  color: var(--blue-primary);
-  border: 2px solid var(--blue-primary);
+  color: #9ca3af;
+  border: 2px solid #4b5563;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -166,7 +161,7 @@
 }
 
 .card:hover {
-  border-color: var(--blue-primary);
+  border-color: #4b5563;
   transform: translateY(-4px);
 }
 ```

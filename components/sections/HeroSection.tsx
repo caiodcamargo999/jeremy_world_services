@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Play, ArrowRight } from 'lucide-react'
+import { Play, ArrowRight, Sparkles, Globe, Crown } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 via-transparent to-gray-700/20 animate-gradient"></div>
@@ -26,9 +26,9 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-gray-300 text-sm font-medium mb-8"
+            className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-600 rounded-full text-gray-300 text-sm font-medium mb-8"
           >
-            <span className="w-2 h-2 bg-gray-400 rounded-full mr-2 animate-pulse"></span>
+            <Sparkles className="w-4 h-4 mr-2" />
             Exclusive Access Only
           </motion.div>
 
@@ -63,7 +63,7 @@ export function HeroSection() {
           >
             <Link href="/contact">
               <motion.button
-                className="bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200 flex items-center"
+                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-10 py-5 rounded-lg text-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-200 flex items-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -78,7 +78,7 @@ export function HeroSection() {
               whileTap={{ scale: 0.98 }}
             >
               <motion.div 
-                className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-700"
+                className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600"
                 whileHover={{ scale: 1.1 }}
               >
                 <Play className="w-5 h-5 text-white ml-1" />
@@ -97,21 +97,24 @@ export function HeroSection() {
             <p className="text-gray-500 text-sm mb-4">Trusted by elite clients worldwide</p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
               <motion.div 
-                className="text-gray-500 text-sm"
+                className="text-gray-500 text-sm flex items-center"
                 whileHover={{ scale: 1.05 }}
               >
+                <Crown className="w-4 h-4 mr-2" />
                 Luxury Brands
               </motion.div>
               <motion.div 
-                className="text-gray-500 text-sm"
+                className="text-gray-500 text-sm flex items-center"
                 whileHover={{ scale: 1.05 }}
               >
+                <Globe className="w-4 h-4 mr-2" />
                 VIP Events
               </motion.div>
               <motion.div 
-                className="text-gray-500 text-sm"
+                className="text-gray-500 text-sm flex items-center"
                 whileHover={{ scale: 1.05 }}
               >
+                <Sparkles className="w-4 h-4 mr-2" />
                 Exclusive Clubs
               </motion.div>
             </div>
@@ -129,7 +132,7 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}

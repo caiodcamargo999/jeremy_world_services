@@ -18,11 +18,11 @@ export function Providers({ children }: ProvidersProps) {
           style: {
             background: '#1e293b',
             color: '#f8fafc',
-            border: '1px solid #D4AF37',
+            border: '1px solid #4b5563',
           },
           success: {
             iconTheme: {
-              primary: '#10B981',
+              primary: '#6b7280',
               secondary: '#f8fafc',
             },
           },

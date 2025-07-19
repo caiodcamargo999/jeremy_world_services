@@ -1,110 +1,109 @@
 import { Metadata } from 'next'
-import { motion } from 'framer-motion'
-import { ArrowLeft, Play, Star, Target, Users, MapPin, Calendar, Megaphone, Zap } from 'lucide-react'
+import { ArrowLeft, Play, Star, Target, Users, MapPin, Calendar, Zap, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Marketing & Brand Activation | Jeremy\'s Lifestyle Ecosystem',
-  description: 'Premium marketing and brand activation services for luxury brands. Strategic campaigns, influencer partnerships, and high-impact brand experiences.',
+  description: 'Strategic marketing and brand activation services. Digital campaigns, influencer partnerships, and brand development for luxury markets.',
 }
 
 const benefits = [
   {
     icon: Target,
     title: 'Strategic Campaigns',
-    description: 'Data-driven marketing strategies that target high-value audiences and drive measurable results'
+    description: 'Data-driven marketing campaigns designed to reach high-value audiences and drive conversions'
   },
   {
     icon: Users,
-    title: 'Influencer Network',
-    description: 'Access to exclusive influencer partnerships and celebrity endorsements for maximum impact'
+    title: 'Influencer Networks',
+    description: 'Access to exclusive influencer networks and celebrity partnerships for maximum brand exposure'
   },
   {
-    icon: MapPin,
-    title: 'Global Reach',
-    description: 'International marketing campaigns and brand activations across multiple markets'
+    icon: TrendingUp,
+    title: 'ROI Focused',
+    description: 'Measurable results with clear ROI tracking and performance optimization strategies'
   },
   {
     icon: Zap,
-    title: 'Rapid Execution',
-    description: 'Quick campaign deployment and real-time optimization for maximum ROI'
+    title: 'Rapid Scaling',
+    description: 'Quick campaign deployment and rapid scaling for immediate market impact'
   }
 ]
 
 const services = [
   {
-    name: 'Brand Strategy',
-    description: 'Comprehensive brand positioning and identity development for luxury markets',
-    duration: '2-4 months'
-  },
-  {
     name: 'Digital Marketing',
-    description: 'Multi-channel digital campaigns including social media, PPC, and content marketing',
+    description: 'Comprehensive digital marketing strategies including social media, PPC, and content marketing',
     duration: 'Ongoing'
   },
   {
-    name: 'Influencer Partnerships',
-    description: 'Strategic collaborations with top-tier influencers and celebrities',
+    name: 'Brand Development',
+    description: 'Complete brand identity development and positioning for luxury markets',
+    duration: 'Long-term'
+  },
+  {
+    name: 'Influencer Marketing',
+    description: 'Strategic influencer partnerships and celebrity endorsements',
     duration: 'Campaign-based'
   },
   {
     name: 'Event Marketing',
-    description: 'High-impact brand activations and experiential marketing events',
+    description: 'Exclusive event marketing and brand activation experiences',
     duration: 'Event-based'
   }
 ]
 
 const testimonials = [
   {
-    name: 'Lisa Chen',
-    title: 'Brand Director',
-    content: 'Jeremy\'s marketing campaigns increased our brand awareness by 300% in just 6 months.',
+    name: 'Sarah Williams',
+    title: 'Luxury Brand CEO',
+    content: 'Jeremy\'s marketing strategies transformed our brand presence and drove incredible ROI.',
     rating: 5
   },
   {
-    name: 'Marcus Johnson',
-    title: 'Startup CEO',
-    content: 'The influencer partnerships and brand activation strategies were game-changing.',
+    name: 'Michael Chen',
+    title: 'Startup Founder',
+    content: 'The influencer partnerships and brand development exceeded all expectations.',
     rating: 5
   }
 ]
 
 const packages = [
   {
-    name: 'Brand Audit',
+    name: 'Starter Campaign',
     price: '$15,000',
-    description: 'Comprehensive brand analysis and strategy',
+    description: 'Basic marketing campaign setup',
     features: [
-      'Brand positioning analysis',
-      'Competitive research',
-      'Target audience insights',
-      'Strategy recommendations',
-      'Implementation roadmap'
+      'Social media strategy',
+      'Content creation',
+      'Basic analytics',
+      'Monthly reporting',
+      'Email support'
     ]
   },
   {
-    name: 'Full Campaign',
-    price: '$100,000',
-    description: 'Complete marketing campaign execution',
+    name: 'Premium Marketing',
+    price: '$75,000',
+    description: 'Comprehensive marketing solution',
     features: [
-      'Multi-channel strategy',
+      'Full digital strategy',
       'Influencer partnerships',
-      'Content creation',
-      'Performance tracking',
-      'Optimization support'
+      'Brand development',
+      'Advanced analytics',
+      'Dedicated manager'
     ],
     popular: true
   },
   {
-    name: 'Brand Partnership',
-    price: '$500,000',
-    description: 'Long-term brand development partnership',
+    name: 'Elite Branding',
+    price: '$250,000',
+    description: 'Complete brand transformation',
     features: [
-      'Ongoing strategy',
-      'Exclusive partnerships',
-      'Global expansion',
-      'Crisis management',
-      'Performance guarantees'
+      'Full brand overhaul',
+      'Celebrity partnerships',
+      'Global campaigns',
+      'Exclusive events',
+      '24/7 support'
     ]
   }
 ]
@@ -117,144 +116,93 @@ export default function MarketingPage() {
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 via-transparent to-gray-700/20 animate-gradient"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.1),transparent_50%)]"></div>
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
+          <div className="mb-8 animate-fade-in-left">
             <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white transition-colors duration-200">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Services
             </Link>
-          </motion.div>
+          </div>
 
           {/* Service Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-gray-300 text-sm font-medium mb-8"
-          >
-            <Megaphone className="w-4 h-4 mr-2" />
-            Premium Marketing
-          </motion.div>
+          <div className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-gray-300 text-sm font-medium mb-8 animate-fade-in-up">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            Marketing & Branding
+          </div>
 
           {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-          >
-            Transform Your Brand
-            <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> with Strategic Marketing</span>
-          </motion.h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+            Transform Your
+            <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Brand Presence</span>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
-          >
-            Premium marketing and brand activation services that drive results. 
-            Strategic campaigns, influencer partnerships, and high-impact brand experiences.
-          </motion.p>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto animate-fade-in-up">
+            Strategic marketing and brand activation services. Digital campaigns, influencer partnerships, 
+            and brand development designed for luxury markets and high-value audiences.
+          </p>
 
           {/* VSL Video Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mb-12"
-          >
+          <div className="mb-12 animate-fade-in-up">
             <div className="relative max-w-4xl mx-auto">
               {/* Video Placeholder */}
               <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-700/50 to-gray-800/50"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.button
-                    className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
+                  <button className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-110 active:scale-95">
                     <Play className="w-8 h-8 text-white ml-1" />
-                  </motion.button>
+                  </button>
                 </div>
                 <div className="absolute bottom-4 left-4 text-white text-sm">
-                  Watch: "Marketing Secrets of Luxury Brands" (8:15)
+                  Watch: "The Future of Luxury Marketing" (5:15)
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link href="/contact?service=marketing">
-              <motion.button
-                className="bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-10 py-5 rounded-lg text-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200 flex items-center"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start Marketing
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
+            <Link href="/checkout?service=marketing">
+              <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-10 py-5 rounded-lg text-lg transition-all duration-200 flex items-center hover:from-gray-600 hover:to-gray-500 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
+                Start Campaign
                 <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
-              </motion.button>
+              </button>
             </Link>
             
-            <motion.button
-              className="bg-transparent border-2 border-gray-600 text-gray-300 font-semibold px-8 py-5 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-200"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <button className="bg-transparent border-2 border-gray-600 text-gray-300 font-semibold px-8 py-5 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-200 hover:scale-102 active:scale-98">
               View Services
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Benefits Section */}
       <section className="py-20 bg-black/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Why Choose Our
-              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Marketing Services</span>
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Marketing</span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <div
                 key={benefit.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-16 h-16 bg-gray-700/50 rounded-xl flex items-center justify-center mb-6">
                   <benefit.icon className="w-8 h-8 text-gray-300" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4">{benefit.title}</h3>
                 <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -263,34 +211,26 @@ export default function MarketingPage() {
       {/* Services Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Our Services
+              Marketing
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Services</span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <motion.div
+              <div
                 key={service.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-white">{service.name}</h3>
                   <span className="text-gray-400 text-sm">{service.duration}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4">{service.name}</h3>
                 <p className="text-gray-300 leading-relaxed">{service.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -299,39 +239,30 @@ export default function MarketingPage() {
       {/* Testimonials Section */}
       <section className="py-20 bg-black/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Success Stories
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={testimonial.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700"
+                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-gray-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-gray-300 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
                 <div>
-                  <div className="font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-gray-400 text-sm">{testimonial.title}</div>
+                  <p className="text-white font-semibold">{testimonial.name}</p>
+                  <p className="text-gray-400 text-sm">{testimonial.title}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -340,100 +271,82 @@ export default function MarketingPage() {
       {/* Pricing Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Choose Your
               <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Marketing Package</span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <motion.div
+              <div
                 key={pkg.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`p-8 rounded-2xl border transition-all duration-300 ${
+                className={`p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-2 animate-fade-in-up ${
                   pkg.popular 
-                    ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-600' 
-                    : 'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700'
+                    ? 'bg-gradient-to-br from-gray-700 to-gray-800 border-gray-500 relative' 
+                    : 'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 hover:border-gray-600'
                 }`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {pkg.popular && (
-                  <div className="text-center mb-4">
-                    <span className="px-3 py-1 bg-gray-600 text-white text-sm rounded-full">Most Popular</span>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-gradient-to-r from-gray-600 to-gray-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Most Popular
+                    </span>
                   </div>
                 )}
                 
-                <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-white mb-2">{pkg.price}</div>
-                <div className="text-gray-400 mb-6">{pkg.description}</div>
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-white">{pkg.price}</span>
+                  </div>
+                  <p className="text-gray-400 mb-6">{pkg.description}</p>
+                </div>
                 
-                <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
+                <ul className="space-y-4 mb-8">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-center text-gray-300">
                       <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
                 </ul>
                 
-                <Link href={`/contact?service=marketing&package=${pkg.name.toLowerCase().replace(' ', '-')}`}>
-                  <motion.button
-                    className={`w-full py-4 rounded-lg font-semibold transition-all duration-200 ${
-                      pkg.popular
-                        ? 'bg-gradient-to-r from-gray-600 to-gray-700 text-white hover:from-gray-500 hover:to-gray-600'
-                        : 'bg-transparent border-2 border-gray-600 text-gray-300 hover:border-gray-500 hover:text-white'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                <Link href={`/checkout?service=marketing&package=${pkg.name.toLowerCase().replace(' ', '-')}`}>
+                  <button className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                    pkg.popular
+                      ? 'bg-gradient-to-r from-gray-600 to-gray-500 text-white hover:from-gray-500 hover:to-gray-400'
+                      : 'bg-transparent border-2 border-gray-600 text-gray-300 hover:border-gray-500 hover:text-white'
+                  } hover:scale-105 active:scale-95`}>
                     Get Started
-                  </motion.button>
+                  </button>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-black/50">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Transform
               <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Your Brand?</span>
             </h2>
-            
-            <p className="text-xl text-gray-300 mb-8">
-              Join successful brands that have already achieved remarkable growth 
-              through strategic marketing and brand activation.
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              Join the elite brands who choose Jeremy's World Services for their marketing success.
             </p>
-
-            <Link href="/contact?service=marketing">
-              <motion.button
-                className="bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-12 py-5 rounded-lg text-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start Your Marketing Journey
-              </motion.button>
+            <Link href="/checkout?service=marketing">
+              <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-12 py-5 rounded-lg text-lg transition-all duration-200 hover:from-gray-600 hover:to-gray-500 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
+                Start Your Campaign
+                <ArrowLeft className="w-5 h-5 ml-2 rotate-180 inline" />
+              </button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

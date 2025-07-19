@@ -86,7 +86,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#D4AF37" />
+        <meta name="theme-color" content="#0a0a0a" />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Providers>
