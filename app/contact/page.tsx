@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
-import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
+import { ArrowLeft, Mail, Phone, MapPin, Clock, Send, Database, Network, Cpu } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -13,25 +12,25 @@ const contactInfo = [
     icon: Mail,
     title: 'Email',
     value: 'hello@jeremyslifestyle.com',
-    link: 'mailto:hello@jeremyslifestyle.com'
+    description: 'For general inquiries and consultations'
   },
   {
     icon: Phone,
     title: 'Phone',
-    value: '+1 (234) 567-890',
-    link: 'tel:+1234567890'
+    value: '+1 (555) 123-4567',
+    description: 'Direct line for urgent matters'
   },
   {
     icon: MapPin,
     title: 'Location',
     value: 'Miami, FL',
-    link: '#'
+    description: 'Headquarters and primary office'
   },
   {
     icon: Clock,
-    title: 'Response Time',
-    value: 'Within 24 hours',
-    link: '#'
+    title: 'Hours',
+    value: '24/7 Available',
+    description: 'Round-the-clock concierge service'
   }
 ]
 
@@ -45,261 +44,166 @@ export default function ContactPage() {
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
+          <div className="mb-8 animate-fade-in-left">
             <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white transition-colors duration-200">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-          </motion.div>
+          </div>
 
           {/* Main Content */}
           <div className="text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-gray-300 text-sm font-medium mb-8"
-            >
+            <div className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-gray-300 text-sm font-medium mb-8 animate-fade-in-up">
               Get in Touch
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-            >
-              Ready to Transform Your
-              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Lifestyle?</span>
-            </motion.h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+              Let's Create
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Something Extraordinary</span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-            >
-              Connect with Jeremy's team to discuss your luxury lifestyle needs and discover how we can 
-              create extraordinary experiences tailored specifically for you.
-            </motion.p>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
+              Ready to transform your lifestyle? Get in touch with Jeremy's team to discuss your exclusive access needs 
+              and discover how we can create extraordinary experiences tailored to your vision.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Section */}
+      <section className="py-20 bg-black/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Contact
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Information</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {contactInfo.map((info, index) => (
+              <div
+                key={info.title}
+                className="p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-16 h-16 bg-gray-700/50 rounded-xl flex items-center justify-center mb-6">
+                  <info.icon className="w-8 h-8 text-gray-300" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">{info.title}</h3>
+                <p className="text-gray-300 text-lg mb-2">{info.value}</p>
+                <p className="text-gray-400">{info.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-white mb-8">
-                Send us a Message
-              </h2>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Send Us a
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Message</span>
+            </h2>
+            <p className="text-gray-300 text-lg">
+              Tell us about your vision and let us craft the perfect experience for you.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8 animate-fade-in-up">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">First Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+                    placeholder="Enter your first name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">Last Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+                    placeholder="Enter your last name"
+                  />
+                </div>
+              </div>
               
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-600 transition-colors duration-200"
-                      placeholder="Enter your first name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-600 transition-colors duration-200"
-                      placeholder="Enter your last name"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-600 transition-colors duration-200"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-600 transition-colors duration-200"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
-                    Service of Interest
-                  </label>
-                  <select className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-600 transition-colors duration-200">
-                    <option value="">Select a service</option>
-                    <option value="yacht">Yacht Rentals & Jet Ski</option>
-                    <option value="guest-list">Guest List & Club Access</option>
-                    <option value="dj-booking">DJ & Artist Booking</option>
-                    <option value="art-basel">Art Basel & Creative Collabs</option>
-                    <option value="consulting">Business Development</option>
-                    <option value="marketing">Marketing & Brand Activation</option>
-                    <option value="soccer">Soccer Management</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    rows={6}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-600 transition-colors duration-200 resize-none"
-                    placeholder="Tell us about your luxury lifestyle needs and how we can help..."
-                  ></textarea>
-                </div>
-                
-                <motion.button
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+                  placeholder="Enter your email address"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">Phone</label>
+                <input
+                  type="tel"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">Service Interest</label>
+                <select className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors">
+                  <option value="">Select a service</option>
+                  <option value="yacht-rentals">Yacht Rentals & Jet Ski</option>
+                  <option value="guest-list">Guest List & Club Access</option>
+                  <option value="dj-booking">DJ & Artist Booking</option>
+                  <option value="art-basel">Art Basel & Creative Collabs</option>
+                  <option value="consulting">Business Development</option>
+                  <option value="marketing">Marketing & Brand Activation</option>
+                  <option value="soccer">Soccer Management</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">Message</label>
+                <textarea
+                  rows={6}
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors resize-none"
+                  placeholder="Tell us about your vision and requirements..."
+                ></textarea>
+              </div>
+              
+              <div className="text-center">
+                <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white font-semibold px-8 py-4 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200 flex items-center justify-center space-x-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-8 py-4 rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-200 hover:scale-105 active:scale-95 flex items-center mx-auto"
                 >
-                  <Send className="w-5 h-5" />
-                  <span>Send Message</span>
-                </motion.button>
-              </form>
-            </motion.div>
-
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-white mb-8">
-                Contact Information
-              </h2>
-              
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <motion.a
-                    key={info.title}
-                    href={info.link}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-200 group"
-                  >
-                    <div className="w-12 h-12 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-gray-600/50 transition-colors duration-200">
-                      <info.icon className="w-6 h-6 text-gray-300" />
-                    </div>
-                    <div>
-                      <div className="text-gray-400 text-sm font-medium">{info.title}</div>
-                      <div className="text-white font-semibold">{info.value}</div>
-                    </div>
-                  </motion.a>
-                ))}
+                  <Send className="w-5 h-5 mr-2" />
+                  Send Message
+                </button>
               </div>
-
-              {/* Additional Info */}
-              <div className="mt-12 p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700">
-                <h3 className="text-xl font-semibold text-white mb-4">
-                  What to Expect
-                </h3>
-                <div className="space-y-3 text-gray-300">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                    <span>Response within 24 hours</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                    <span>Personalized consultation</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                    <span>Exclusive access opportunities</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                    <span>Tailored experience planning</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* CTA Section */}
       <section className="py-20 bg-black/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Frequently Asked
-              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Questions</span>
+              Ready to Start Your
+              <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Journey?</span>
             </h2>
-          </motion.div>
-
-          <div className="space-y-6">
-            {[
-              {
-                question: "How quickly will I receive a response?",
-                answer: "We typically respond to all inquiries within 24 hours during business days."
-              },
-              {
-                question: "What information should I include in my message?",
-                answer: "Please include your specific interests, timeline, and any particular requirements or preferences you have."
-              },
-              {
-                question: "Is there a consultation fee?",
-                answer: "Initial consultations are complimentary. We only charge for services once we've agreed on a specific plan."
-              },
-              {
-                question: "Do you work internationally?",
-                answer: "Yes, we provide services globally and have partnerships in over 50 countries worldwide."
-              }
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700"
-              >
-                <h3 className="text-lg font-semibold text-white mb-3">{faq.question}</h3>
-                <p className="text-gray-300">{faq.answer}</p>
-              </motion.div>
-            ))}
+            <p className="text-gray-300 text-lg mb-8">
+              Join the elite who have already discovered the transformative power of Jeremy's Lifestyle Ecosystem.
+            </p>
+            <Link href="/">
+              <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-8 py-4 rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-200 hover:scale-105 active:scale-95">
+                Explore Services
+              </button>
+            </Link>
           </div>
         </div>
       </section>
