@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { 
   Sailboat, 
   Users, 
@@ -76,46 +75,25 @@ export function ServicesOverview() {
     <section className="py-20 bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold text-white mb-6"
-          >
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Exclusive
             <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Services</span>
-          </motion.h2>
+          </h2>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-          >
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Transform your lifestyle with our curated selection of premium services, 
             designed for those who demand nothing but the extraordinary.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <Link href={service.href}>
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-gray-600 transition-all duration-300 h-full group-hover:scale-[1.02] group-hover:shadow-xl">
@@ -142,25 +120,19 @@ export function ServicesOverview() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16 animate-fade-in-up">
           <Link href="/contact">
             <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 hover:from-gray-600 hover:to-gray-500 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
               Explore All Services
               <ArrowRight className="w-5 h-5 ml-2 inline" />
             </button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Play, ArrowRight, Sparkles, Globe, Crown } from 'lucide-react'
 
@@ -15,132 +14,72 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-600 rounded-full text-gray-300 text-sm font-medium mb-8"
-          >
+          <div className="inline-flex items-center px-4 py-2 bg-gray-800/50 border border-gray-600 rounded-full text-gray-300 text-sm font-medium mb-8 animate-fade-in-up">
             <Sparkles className="w-4 h-4 mr-2" />
             Exclusive Access Only
-          </motion.div>
+          </div>
 
           {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-          >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up">
             Transform Your Reality Into
             <span className="block bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"> Extraordinary</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
-          >
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up">
             Experience the pinnacle of luxury living with Jeremy's exclusive lifestyle ecosystem. 
-            From yacht charters to VIP access, we craft moments that define your legacy.
-          </motion.p>
+            From yacht rentals to VIP access, transform your reality into extraordinary.
+          </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link href="/contact">
-              <motion.button
-                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-10 py-5 rounded-lg text-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-200 flex items-center"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Apply for Access
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </motion.button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
+            <Link href="/services">
+              <button className="bg-gradient-to-r from-gray-700 to-gray-600 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 hover:from-gray-600 hover:to-gray-500 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
+                Explore Services
+                <ArrowRight className="w-5 h-5 ml-2 inline" />
+              </button>
             </Link>
             
-            <motion.button
-              className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div 
-                className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Play className="w-5 h-5 text-white ml-1" />
-              </motion.div>
-              <span className="text-lg font-medium">Watch Experience</span>
-            </motion.button>
-          </motion.div>
+            <button className="bg-transparent border-2 border-gray-600 text-gray-300 font-semibold px-8 py-4 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-200 hover:scale-102 active:scale-98">
+              Watch Video
+            </button>
+          </div>
 
           {/* Social Proof */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-16 pt-8 border-t border-gray-800"
-          >
+          <div className="mt-16 pt-8 border-t border-gray-800">
             <p className="text-gray-500 text-sm mb-4">Trusted by elite clients worldwide</p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
-              <motion.div 
-                className="text-gray-500 text-sm flex items-center"
-                whileHover={{ scale: 1.05 }}
-              >
+              <div className="text-gray-500 text-sm flex items-center"
+                   onMouseEnter={(e) => e.currentTarget.classList.add('scale-105')}
+                   onMouseLeave={(e) => e.currentTarget.classList.remove('scale-105')}>
                 <Crown className="w-4 h-4 mr-2" />
                 Luxury Brands
-              </motion.div>
-              <motion.div 
-                className="text-gray-500 text-sm flex items-center"
-                whileHover={{ scale: 1.05 }}
-              >
+              </div>
+              <div className="text-gray-500 text-sm flex items-center"
+                   onMouseEnter={(e) => e.currentTarget.classList.add('scale-105')}
+                   onMouseLeave={(e) => e.currentTarget.classList.remove('scale-105')}>
                 <Globe className="w-4 h-4 mr-2" />
                 VIP Events
-              </motion.div>
-              <motion.div 
-                className="text-gray-500 text-sm flex items-center"
-                whileHover={{ scale: 1.05 }}
-              >
+              </div>
+              <div className="text-gray-500 text-sm flex items-center"
+                   onMouseEnter={(e) => e.currentTarget.classList.add('scale-105')}
+                   onMouseLeave={(e) => e.currentTarget.classList.remove('scale-105')}>
                 <Sparkles className="w-4 h-4 mr-2" />
                 Exclusive Clubs
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
+        </div>
+      </div>
     </section>
   )
 } 
