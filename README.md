@@ -13,12 +13,13 @@ This website serves as a comprehensive digital ecosystem for Jeremy's luxury lif
 - **SEO-optimized structure** for organic growth
 - **Stripe payment integration** for instant transactions
 - **Headless CMS ready** (Sanity/Contentful) for easy content management
+- **Framer Motion animations** for premium user experience
 
 ## 🏗️ Architecture
 
 ### Tech Stack
 - **Frontend**: Next.js 14 (App Router) + TypeScript + TailwindCSS
-- **Animations**: Framer Motion for smooth micro-interactions
+- **Animations**: Framer Motion with LazyMotion for Next.js 14 compatibility
 - **Styling**: Custom minimalist luxury design system with TailwindCSS
 - **Forms**: React Hook Form + Zod validation
 - **Payments**: Stripe integration with Apple Pay support
@@ -59,9 +60,9 @@ jeremy_master_website/
 - **Urgency CTAs**: Scarcity and limited availability messaging
 
 ### Design System
-- **Minimalist Luxury**: Dark backgrounds with gold accents
+- **Minimalist Luxury**: Dark backgrounds with gray accents
 - **Typography**: Inter (sans-serif) + Playfair Display (serif accents)
-- **Animations**: Smooth micro-interactions and page transitions
+- **Animations**: Smooth micro-interactions and page transitions with Framer Motion
 - **Glass Effects**: Subtle backdrop blur and transparency
 - **Premium Shadows**: Sophisticated depth and elevation
 - **Responsive Design**: Mobile-first with iOS Safari optimization
@@ -143,10 +144,10 @@ For complete design specifications, typography, colors, spacing, and component g
 **[DESIGN_RULES_JEREMY_WORLD_SERVICES.md](./DESIGN_RULES_JEREMY_WORLD_SERVICES.md)**
 
 The design system implements a minimalist luxury aesthetic with:
-- Dark color palette with gold accents
+- Dark color palette with gray accents
 - Clean typography hierarchy
 - Generous whitespace
-- Subtle animations and micro-interactions
+- Subtle animations and micro-interactions with Framer Motion
 
 ## 📊 Performance
 
@@ -163,6 +164,7 @@ The design system implements a minimalist luxury aesthetic with:
 - **Static Generation**: Pre-rendered pages for speed
 - **CDN**: Vercel Edge Network
 - **Caching**: Optimized cache strategies
+- **Framer Motion**: LazyMotion for optimal loading
 
 ## 🔧 Customization
 
