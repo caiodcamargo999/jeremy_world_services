@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import { Toaster } from 'react-hot-toast'
 
 interface ProvidersProps {
@@ -9,7 +10,7 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <>
+    <LazyMotion features={domAnimation} strict>
       {children}
       <Toaster
         position="top-right"
@@ -34,6 +35,6 @@ export function Providers({ children }: ProvidersProps) {
           },
         }}
       />
-    </>
+    </LazyMotion>
   )
 } 
